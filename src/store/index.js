@@ -3,9 +3,13 @@ import { createStore } from 'redux'
 const storeReducer = (state = { counter: 0 }, action) => {
   switch (action.type) {
     case 'increment':
-      return state.count + 1
+      return { counter: state.counter + 1 }
     case 'decrement':
-      return state.count - 1
+      return { counter: state.counter - 1 }
+    case 'increase':
+      return {
+        counter: state.counter + action.amount,
+      }
     default:
       return state
   }
