@@ -1,6 +1,6 @@
-import redux from 'redux'
+import { createStore } from 'redux'
 
-const reducer = (state = { counter: 0 }, action) => {
+const storeReducer = (state = { counter: 0 }, action) => {
   switch (action.type) {
     case 'increment':
       return state.count + 1
@@ -10,6 +10,6 @@ const reducer = (state = { counter: 0 }, action) => {
       return state
   }
 }
-const store = redux.createStore(reducer)
+const store = createStore(storeReducer)
 
 export default store
