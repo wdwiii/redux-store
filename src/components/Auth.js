@@ -1,9 +1,17 @@
+import { useCallback } from 'react'
 import classes from './Auth.module.css'
-import { authActions } from '../store'
+import { authActions } from '../store/auth'
 import { useDispatch } from 'react-redux'
 
 const Auth = () => {
   const dispatch = useDispatch()
+  const loginHandler = useCallback(
+    e => {
+      e.preventDefault()
+      dispatch(authActions.login())
+    },
+    [dispatch]
+  )
 
   return (
     <main className={classes.auth}>
@@ -19,8 +27,7 @@ const Auth = () => {
           </div>
           <button
             onClick={e => {
-              e.preventDefault()
-              dispatch(authActions.login())
+              loginHandler(e)
             }}
           >
             Login
