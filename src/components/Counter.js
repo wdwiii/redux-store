@@ -1,8 +1,6 @@
-import { useEffect, useCallback } from 'react'
 import classes from './Counter.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { counterActions } from '../store/counter'
-import { authActions } from '../store/auth'
 
 const Counter = () => {
   const counter = useSelector(state => state.counter.counter)
